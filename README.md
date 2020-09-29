@@ -1,2 +1,2 @@
 # Voicy
-A simple speech-to-text Android App with auto-save on clipboard feature
+A simple Speech-To-Text Android App with Autosave on Clipboard feature. 
