@@ -30,7 +30,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
+        getSupportActionBar().hide();
         checkPermission();
 
         final TextView editText = findViewById(R.id.textView);
@@ -52,6 +52,15 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
+
+        Button button2=findViewById(R.id.button2);
+        button2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                final TextView editText = findViewById(R.id.textView);
+                editText.setText("");
+            }
+        });
     }
 
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
@@ -63,9 +72,10 @@ public class MainActivity extends AppCompatActivity {
                     final TextView editText = findViewById(R.id.textView);
                     ArrayList<String> result = data
                             .getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS);
-                    editText.setText(result.get(0));
+                    String s =editText.getText().toString() + result.get(0);
+                    editText.setText(s);
                     ClipboardManager clipboard = (ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE);
-                    ClipData clip = ClipData.newPlainText("Write-Up", result.get(0));
+                    ClipData clip = ClipData.newPlainText("Write-Up", s);
                     clipboard.setPrimaryClip(clip);
                     Toast.makeText(getApplicationContext(),"Copied to ClipBoard",Toast.LENGTH_SHORT).show();
                 }

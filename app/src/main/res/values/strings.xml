@@ -3,4 +3,7 @@
     <string name="Hint_Text">Your Translation Will Appear Here</string>
     <string name="WRITE">WRITE</string>
     <string name="listen">LISTEN</string>
+    <string name="voicy">Voicy</string>
+    <string name="clear">CLEAR</string>
+    <string name="text_will_be_shown_here">Text will be shown here</string>
 </resources>
